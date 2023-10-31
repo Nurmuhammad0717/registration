@@ -1,0 +1,1 @@
+User{fullName='Nurmuhammad', phoneNumber='+998944310717', e_mail='snurmuhammad85@gmail.com', password='Sobirov)7173#'}
