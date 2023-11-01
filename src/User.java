@@ -20,7 +20,7 @@ public class User {
         this.fullName = fullName;
     }
 
-    public String getBirthDate() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 

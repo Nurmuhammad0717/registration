@@ -14,7 +14,7 @@ public class Main {
         FileWriter fileWriter= new FileWriter("src/userInfo.txt");
         BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 
-        while (true) {
+
 
             System.out.println("\n=====================================================\t\n");
             System.out.println("\t\t Create e-mail ");
@@ -22,14 +22,12 @@ public class Main {
             String fullName = scanner.nextLine();
             if (!checkName(fullName)) {
                 System.out.println("Enter your name correctly example(Firstname Surname)");
-                continue;
             }
 
             System.out.print("Enter your phone number example(+998901234567) : ");
             String phoneNumber = scanner.nextLine();
             if (!checkPhoneNumber(phoneNumber)) {
                 System.out.println("Enter phone number correctly example(+998901234567) : ");
-                continue;
             }
 
 
@@ -37,7 +35,6 @@ public class Main {
             String e_mail = scanner.nextLine();
             if (!checkEmail(e_mail)) {
                 System.out.println("Enter an acceptable e-mail example(email@example.com) : ");
-                continue;
             }
 
 
@@ -46,20 +43,23 @@ public class Main {
             if (!checkPassword(password)) {
                 System.out.println("The password should contain at least a capital letter a lowercase letter" +
                         " a digit and a non digit and non letter character try again");
-                continue;
             }
 
             users.add(new User(fullName,phoneNumber,e_mail, password));
-            System.out.println("Your account is successfully saved you can check it from userInfo.txt file 😊");
-            bufferedWriter.write(users.get(users.size()-1).toString());
+            System.out.println("Your account is successfully saved you can check it info from userInfo.txt file 😊");
+            User last = users.get(users.size()-1);
+            String info;
+            info =  "Full name : "+last.getFullName()+"\n"+
+                    "Phone number :"+last.getPhoneNumber()+
+                    "\nE-mail :"+last.getE_mail()+
+                    "\nPassword :"+last.getPassword();
+            bufferedWriter.write(info);
             bufferedWriter.close();
+
         }
 
 
 
-
-
-    }
 
     private static boolean checkPassword(String password) {
         int countD=0;
